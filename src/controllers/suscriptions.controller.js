@@ -41,21 +41,17 @@ const recibirWebhook = async (req, res) => {
   if (payment.type == "payment") {
     const paymentService = new Payment(client);
     const data = await paymentService.get({ id: payment["data.id"] });
-    console.log(data);
+    if (data.status == "approved"){
+      console.log("Se completo el pago correctamente")
+    }else {
+      console.log("Hubo un problema con el pago")
+    }
   }
   res.status(200).send("Web hook");
 };
 
-const obtenerSuscripcion = async () => {};
-const actualizarSuscripcion = async () => {};
-const eliminarSuscripcion = async () => {};
-const success = async (req, res) => {};
 
 export {
   crearSuscripcion,
-  obtenerSuscripcion,
-  actualizarSuscripcion,
-  eliminarSuscripcion,
-  success,
   recibirWebhook,
 };

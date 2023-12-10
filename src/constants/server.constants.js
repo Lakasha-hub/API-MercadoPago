@@ -13,8 +13,4 @@ export default {
   platform: {
     LOGIN_URL: process.env.PLATFORM_LOGIN_URL,
   },
-  db: {
-    URL_CONNECTION: process.env.URL_CONNECTION,
-    URL_CONNECTION_TEST: process.env.URL_CONNECTION_TEST,
-  }
 };

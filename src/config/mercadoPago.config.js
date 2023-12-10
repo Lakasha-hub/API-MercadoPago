@@ -16,7 +16,7 @@ export const createPlan = async (client) => {
     auto_recurring: {
       frequency: 1,
       frequency_type: "months",
-      transaction_amount: 11500,
+      transaction_amount: 12500,
       currency_id: "ARS",
     },
   };
