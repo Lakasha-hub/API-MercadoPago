@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscripción a Natha Yoga</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #B4B4B4;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            background-color: #EEE7DF;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #FF9300;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn:hover {
+            background-color: #D17901;
+        }
+
+        .img {
+            display: flexbox;
+            align-items: center;
+            max-width: 150px;
+            max-height: 150px;
+            margin-bottom: 10px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Curso de auto conocimiento de Natha Yoga</h2>
+        <img src="./img/logo1.png" alt="logo1" class="img">
+        <button class="btn" id="checkout">Suscribirse</button>
+    </div>
+    <script>
+        const checkout = document.getElementById("checkout");
+        checkout.addEventListener("click", async () => {
+            const res = await fetch("/suscripciones/crear-orden", {
+                method: "POST",
+            })
+            const data = await res.json();
+            window.location.href = data.payload.init_point
+            console.log(data)
+        })
+    </script>
+</body>
+
+</html>
