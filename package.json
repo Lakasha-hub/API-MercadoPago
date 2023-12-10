@@ -9,6 +9,9 @@
     "dev": "nodemon src/app.js -e dev",
     "start": "node src/app.js -e prod"
   },
+  "engines": {
+    "node": ">=14 <17"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
